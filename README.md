@@ -71,14 +71,14 @@ Include main templates on how agent should inherite and operate.
 ### .{{HARNESS_TOOL}}
 
 Same template as `.agent`, thus can be extended for specific tool choices.
-Other specific add-ons are encouraged to stay inside the same dir, following the original template rules of the tools.
+
+Other specific settings and add-ons are encouraged to stay inside the same dir, following the original template rules of the tools.
 If conflicts happen, during bootstraping or runtime, notify user explicitly for final decisions.
 
-Extended templates:
+Directory with sessions stored should be respected to be accessible by authorized agents only (default the session-owner agent).
 
-- `sessions/`: 
-  - Store agent sessions, default accessible only to the authorized agent.
-  - Should respect the harness choice of unique naming, otherwise following `project-name-with-added-hash`.
+Sample add-ons:
+
 - `extensions | skills | prompts`: Harness-specific extensions, skills, add-ons and so on.
 
 # HIERACHY
@@ -93,21 +93,19 @@ A brief view on the expected hierachy.
   .agent
     AGENTS.MD
     SKILLS.MD
-  .{{HARNESS_TOOL}}
+  .{{HARNESS_TOOL}} // sessions should be stored here
     SKILLS.MD
-    sessions/
     extensions/
 ...
 {{WORK_DIR}}
   .agent
-    AGENTS.MD // override the role if needed.
+    AGENTS.MD // override the role if needed
     SKILLS.MD
     VERSION.MD
     tmp/
     artifacts/
   .{{HARNESS_TOOL}}
     SKILLS.MD
-    sessions/
     extensions/
 ```
 
