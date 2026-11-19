@@ -79,12 +79,16 @@ Extended templates:
 - `sessions/`: 
   - Store agent sessions, default accessible only to the authorized agent.
   - Should respect the harness choice of unique naming, otherwise following `project-name-with-added-hash`.
-- `extensions/ | skills / prompts`: Harness-specific extensions, skills, add-ons and so on.
+- `extensions | skills | prompts`: Harness-specific extensions, skills, add-ons and so on.
 
 # HIERACHY
 
 A brief view on the expected hierachy.
 
+<details>
+<summary>Expected hierarchy</summary>
+
+```text
 {{ROOT_DIR}}
   .agent
     AGENTS.MD
@@ -93,6 +97,7 @@ A brief view on the expected hierachy.
     SKILLS.MD
     sessions/
     extensions/
+...
 {{WORK_DIR}}
   .agent
     AGENTS.MD // override the role if needed.
@@ -104,3 +109,6 @@ A brief view on the expected hierachy.
     SKILLS.MD
     sessions/
     extensions/
+```
+
+</details>
